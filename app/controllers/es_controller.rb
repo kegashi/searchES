@@ -8,8 +8,13 @@ class EsController < ApplicationController
   def newpost
   end
 
+  def destroy
+    Entrysheet.destroy([params[:id]])
+	redirect_to '/es/show'
+  end
+
   def show
-  	if params[:str] == nil then
+  	if params[:field] == nil then
 		@entrysheets = Entrysheet.all
 	else
 		@entrysheets = Entrysheet.where(params[:field] + " like '%" + params[:str] + "%'")
@@ -27,8 +32,4 @@ class EsController < ApplicationController
 	redirect_to '/es/show'
   end
 
-  def destroy
-    Entrysheet.destroy([params[:id]])
-	redirect_to '/es/show'
-  end
 end

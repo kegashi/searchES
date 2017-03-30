@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   
   get 'es/index/:username' => "es#index"
 
-  get 'es/show/delete/:id' => "es#destroy"
+  get 'es/show/:id' => "es#destroy"
 
 
 #練習用のため以下は使用しない

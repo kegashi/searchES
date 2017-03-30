@@ -5,13 +5,20 @@
 	<li><a href="http://133.27.171.211">閲覧する</a></li>
 </ul>
 
+<%= form_tag("http://133.27.171.211/es/show", method: "get") do %>
+	<%= label_tag(:field, "検索対象:") %>
+	<%= select_tag :field, options_for_select([["質問","title"],["分類","tag"],["本文","text"],["その他","others"]]) %>
+	<%= label_tag(:str, "検索ワード:") %>
+	<%= text_field_tag(:str) %> <br>
+	<%= submit_tag("Search") %>
+<% end %>
 
 <% @entrysheets.each do |entrysheet| %>
 	<hr>
-	<p><b>質問</b>: <%= entrysheet.title %></h3>
+	<p><b>質問</b>: <%= entrysheet.title %></p>
 	<p><b>分類</b>: <%= entrysheet.tag %></p>
 	<p><b>本文</b><br><%= entrysheet.text %></p>
 	<p><b>補足</b>: <%= entrysheet.others %></p>
-	<p><a href="show/delete/<%= entrysheet.id %>">削除</a></p>
+	<p><a href="http://133.27.171.211/es/show/<%= entrysheet.id %>">削除</a></p>
 	<hr>
 <% end %>
