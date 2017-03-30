@@ -1,0 +1,17 @@
+<h1>ESを検索する</h1>
+<ul>
+	<li><a href="#">ログインする</a></li>
+	<li><a href="http://133.27.171.211/es/newpost">投稿する</a></li>
+	<li><a href="http://133.27.171.211">閲覧する</a></li>
+</ul>
+
+
+<% @entrysheets.each do |entrysheet| %>
+	<hr>
+	<p><b>質問</b>: <%= entrysheet.title %></h3>
+	<p><b>分類</b>: <%= entrysheet.tag %></p>
+	<p><b>本文</b><br><%= entrysheet.text %></p>
+	<p><b>補足</b>: <%= entrysheet.others %></p>
+	<p><a href="show/delete/<%= entrysheet.id %>">削除</a></p>
+	<hr>
+<% end %>

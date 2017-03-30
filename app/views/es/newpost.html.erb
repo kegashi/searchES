@@ -1,0 +1,20 @@
+<h1>ESを投稿する</h1>
+<ul>
+	<li><a href="#">ログインする</a></li>
+	<li><a href="http://133.27.171.211/es/newpost">投稿する</a></li>
+	<li><a href="http://133.27.171.211">閲覧する</a></li>
+</ul>
+
+<%= form_for Entrysheet.new do |f| %>
+	 <%= f.label :username %><br>
+	 <%= f.text_field :username %><br>
+	 <%= f.label :tag %><br>
+	 <%= f.select :tag, [["プロフィール","プロフィール"],["自己PR","自己PR"],["志望動機","志望動機"],["その他","その他"]] %><br>
+	 <%= f.label :title %><br>
+	 <%= f.text_area :title %><br>
+	 <%= f.label :text %><br>
+	 <%= f.text_area :text %><br>
+	 <%= f.label :others %><br>
+	 <%= f.text_field :others %><br> 
+	 <%= f.submit %><br>
+<% end %>
